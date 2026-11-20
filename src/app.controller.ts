@@ -11,10 +11,19 @@ export class AppController {
   async getHello() {
     return {
       title: 'Foglalás',
-      foglalasok: await this.appService.getFoglalasok()
-    }
+      foglalasok: await this.appService.getFoglalasok(),
+    };
   }
 
-
- 
+  @Post()
+  @Render('index')
+  async addFoglalas(@Body() body: NewFoglalas) {
+    await this.appService.addFoglalasok(
+      body.name,
+      body.email,
+      body.startDate,
+      Number(body.guests)
+    )
+    return this.getHello();
+  }
 }
