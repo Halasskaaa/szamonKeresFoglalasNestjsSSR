@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body } from '@nestjs/common';
 import { AppService } from './app.service.js';
 import { NewFoglalas } from './folalas.dto.js';
 
@@ -14,6 +14,7 @@ export class AppController {
       foglalasok: await this.appService.getFoglalasok()
     }
   }
+
 
  
 }

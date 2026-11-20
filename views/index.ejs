@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,44 @@
     </title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1><%= title %></h1>
+        <h1>
+            <%= title %>
+        </h1>
         <form method="post">
             <input type="text" name="name" placeholder="Név"> <br>
-            <input type="text" name="email" placeholder="Email" pattern="^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"><br>
+            <input type="text" name="email" placeholder="Email"
+                pattern="^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"><br>
             <input type="datetime-local" name="startDate" placeholder="Dátum"><br>
             <input type="number" name="guests" placeholder="Nézők" min="1" max="10"><br>
             <button type="submit">Küldés</button>
         </form>
     </div>
-    
-    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>E-mail</th>
+                <th>Dátum és időpont</th>
+                <th>Nézők vagy vendégek száma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% foglalasok.forEach(item => { %>
+            <tr>
+                <td><%= item.name %></td>
+                <td><%= item.email %></td>
+                <td><%= item.startDate %></td>
+                <td><%= item.guests %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
 
 </body>
+
 </html>
