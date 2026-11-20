@@ -14,49 +14,48 @@
 
 <body>
     <div class="container">
-        <h1>
-            <%= title %>
-        </h1>
-        <form method="post">
-            <input class="form-control w-12" type="text" name="name" placeholder="Név"> <br>
+        <h1> <%= title %> </h1>
+        <h2><%= count %></h2>
+        <form method="post" class="form">
+            <input class="form-control w-12" type="text" name="name" placeholder="Név" required> <br>
             <input class="form-control w-12" type="text" name="email" placeholder="Email"
-                pattern="^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"><br>
-            <input class="form-control w-12" type="datetime-local" name="startDate" placeholder="Dátum"><br>
-            <input class="form-control w-12" type="number" name="guests" placeholder="Nézők" min="1" max="10"><br>
-            <button class="btn" type="submit">Küldés</button> 
+                pattern="^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$" required><br>
+            <input class="form-control w-12" type="datetime-local" name="startDate" placeholder="Dátum" required><br>
+            <input class="form-control w-12" type="number" name="guests" placeholder="Nézők" min="1" max="10"
+                required><br>
+            <button id="myBtn" class="btn" type="submit">Küldés</button>
         </form><br>
-    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Név</th>
-                <th>E-mail</th>
-                <th>Dátum és időpont</th>
-                <th>Nézők vagy vendégek száma</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% foglalasok.forEach(item=> { %>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <%= item.name %>
-                    </td>
-                    <td>
-                        <%= item.email %>
-                    </td>
-                    <td>
-                        <%= item.startDate %>
-                    </td>
-                    <td>
-                        <%= item.guests %>
-                    </td>
+                    <th>Név</th>
+                    <th>E-mail</th>
+                    <th>Dátum és időpont</th>
+                    <th>Nézők vagy vendégek száma</th>
                 </tr>
-                <% }); %>
-        </tbody>
-    </table>
-
-
+            </thead>
+            <tbody>
+                <% foglalasok.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.email %>
+                        </td>
+                        <td>
+                            <%= item.startDate %>
+                        </td>
+                        <td>
+                            <%= item.guests %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

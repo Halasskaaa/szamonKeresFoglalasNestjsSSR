@@ -38,4 +38,12 @@ export class AppService {
       guests
     } as NewFoglalas;
   }
+
+  async getCount() {
+    const [results] = await mysqlConnection.execute(
+      'SELECT COUNT(*) FROM `reservations`'
+    )
+    const rows = results as any;
+    return rows;
+  }
 }

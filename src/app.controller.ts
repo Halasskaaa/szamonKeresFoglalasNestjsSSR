@@ -12,6 +12,7 @@ export class AppController {
     return {
       title: 'Foglalás',
       foglalasok: await this.appService.getFoglalasok(),
+      count: await this.appService.getCount()
     };
   }
 
