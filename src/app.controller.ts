@@ -1,5 +1,6 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
+import { NewFoglalas } from './folalas.dto.js';
 
 @Controller()
 export class AppController {
@@ -7,9 +8,12 @@ export class AppController {
 
   @Get()
   @Render('index')
-  getHello() {
+  async getHello() {
     return {
-      title: 'My First NestJS App'
+      title: 'Foglalás',
+      foglalasok: await this.appService.getFoglalasok()
     }
   }
+
+ 
 }

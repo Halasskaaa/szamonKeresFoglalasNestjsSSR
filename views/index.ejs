@@ -12,8 +12,11 @@
     <div class="container">
         <h1><%= title %></h1>
         <form method="post">
-            <input type="text" name="name">
-            <input type="text">
+            <input type="text" name="name" placeholder="Név"> <br>
+            <input type="text" name="email" placeholder="Email" pattern="^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"><br>
+            <input type="datetime-local" name="startDate" placeholder="Dátum"><br>
+            <input type="number" name="guests" placeholder="Nézők" min="1" max="10"><br>
+            <button type="submit">Küldés</button>
         </form>
     </div>
     
